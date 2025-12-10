@@ -1,0 +1,3297 @@
+[
+  {
+    "type": "kana",
+    "text": "フ",
+    "direction": "top_right",
+    "bbox": [
+      117,
+      85,
+      135,
+      99
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "サ",
+    "direction": "right",
+    "bbox": [
+      117,
+      100,
+      133,
+      114
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ヘ",
+    "direction": "top_left",
+    "bbox": [
+      68,
+      140,
+      81,
+      148
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "マ",
+    "direction": "right",
+    "bbox": [
+      117,
+      155,
+      135,
+      166
+    ]
+  },
+  {
+    "type": "symbol",
+    "text": "丨",
+    "bbox": [
+      90,
+      181,
+      106,
+      196
+    ]
+  },
+  {
+    "type": "symbol",
+    "text": "丨",
+    "bbox": [
+      90,
+      236,
+      106,
+      251
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "リ",
+    "direction": "top_left",
+    "bbox": [
+      68,
+      250,
+      86,
+      266
+    ]
+  },
+  {
+    "type": "symbol",
+    "text": "〇",
+    "bbox": [
+      90,
+      291,
+      106,
+      305
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "チ",
+    "direction": "bottom_left",
+    "bbox": [
+      68,
+      398,
+      86,
+      413
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "コ",
+    "direction": "bottom_right",
+    "bbox": [
+      117,
+      398,
+      135,
+      410
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ヌ",
+    "direction": "right",
+    "bbox": [
+      117,
+      375,
+      130,
+      386
+    ]
+  },
+  {
+    "type": "symbol",
+    "text": "丨",
+    "bbox": [
+      90,
+      401,
+      106,
+      416
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "セ",
+    "direction": "right",
+    "bbox": [
+      117,
+      430,
+      133,
+      442
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "二",
+    "direction": "bottom_left",
+    "bbox": [
+      68,
+      508,
+      84,
+      520
+    ]
+  },
+  {
+    "type": "symbol",
+    "text": "〇",
+    "bbox": [
+      90,
+      511,
+      106,
+      525
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "オ",
+    "direction": "top_right",
+    "bbox": [
+      117,
+      525,
+      130,
+      537
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ル",
+    "direction": "bottom_right",
+    "bbox": [
+      117,
+      563,
+      135,
+      576
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "上",
+    "direction": "top_left",
+    "bbox": [
+      68,
+      580,
+      86,
+      597
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "サ",
+    "direction": "bottom_left",
+    "bbox": [
+      68,
+      618,
+      81,
+      630
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "オ",
+    "direction": "right",
+    "bbox": [
+      117,
+      595,
+      135,
+      610
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ワ",
+    "direction": "bottom_left",
+    "bbox": [
+      68,
+      728,
+      84,
+      741
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ヲ",
+    "direction": "bottom_left",
+    "bbox": [
+      68,
+      783,
+      84,
+      796
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "レ",
+    "direction": "top_left",
+    "bbox": [
+      68,
+      800,
+      86,
+      813
+    ]
+  },
+  {
+    "type": "symbol",
+    "text": "丨",
+    "bbox": [
+      90,
+      841,
+      106,
+      856
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ク",
+    "direction": "bottom_right",
+    "bbox": [
+      117,
+      893,
+      135,
+      908
+    ]
+  },
+  {
+    "type": "symbol",
+    "text": "丨",
+    "bbox": [
+      90,
+      896,
+      106,
+      911
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ハ",
+    "direction": "top_left",
+    "bbox": [
+      68,
+      910,
+      86,
+      921
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "レ",
+    "direction": "right",
+    "bbox": [
+      117,
+      925,
+      130,
+      936
+    ]
+  },
+  {
+    "type": "symbol",
+    "text": "〇",
+    "bbox": [
+      90,
+      951,
+      106,
+      965
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "レ",
+    "direction": "top_left",
+    "bbox": [
+      68,
+      965,
+      86,
+      978
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "エ",
+    "direction": "top_right",
+    "bbox": [
+      117,
+      965,
+      130,
+      974
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ス",
+    "direction": "bottom_left",
+    "bbox": [
+      68,
+      1003,
+      84,
+      1015
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ナ",
+    "direction": "right",
+    "bbox": [
+      117,
+      980,
+      133,
+      993
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ノ",
+    "direction": "top_left",
+    "bbox": [
+      68,
+      1020,
+      84,
+      1033
+    ]
+  },
+  {
+    "type": "symbol",
+    "text": "〇",
+    "bbox": [
+      90,
+      1061,
+      106,
+      1075
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ヘ",
+    "direction": "bottom_left",
+    "bbox": [
+      68,
+      1113,
+      86,
+      1124
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "エ",
+    "direction": "bottom_right",
+    "bbox": [
+      117,
+      1113,
+      133,
+      1124
+    ]
+  },
+  {
+    "type": "symbol",
+    "text": "丨",
+    "bbox": [
+      180,
+      126,
+      196,
+      141
+    ]
+  },
+  {
+    "type": "symbol",
+    "text": "丨",
+    "bbox": [
+      180,
+      181,
+      196,
+      196
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ケ",
+    "direction": "top_left",
+    "bbox": [
+      158,
+      250,
+      176,
+      265
+    ]
+  },
+  {
+    "type": "symbol",
+    "text": "丨",
+    "bbox": [
+      180,
+      291,
+      196,
+      306
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ア",
+    "direction": "bottom_left",
+    "bbox": [
+      158,
+      343,
+      171,
+      354
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ナ",
+    "direction": "bottom_right",
+    "bbox": [
+      207,
+      343,
+      225,
+      358
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "テ",
+    "direction": "right",
+    "bbox": [
+      207,
+      320,
+      223,
+      334
+    ]
+  },
+  {
+    "type": "symbol",
+    "text": "〇",
+    "bbox": [
+      180,
+      346,
+      196,
+      360
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ロ",
+    "direction": "bottom_right",
+    "bbox": [
+      207,
+      398,
+      220,
+      407
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "マ",
+    "direction": "top_right",
+    "bbox": [
+      207,
+      415,
+      220,
+      424
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ナ",
+    "direction": "right",
+    "bbox": [
+      207,
+      430,
+      223,
+      444
+    ]
+  },
+  {
+    "type": "symbol",
+    "text": "〇",
+    "bbox": [
+      180,
+      456,
+      196,
+      470
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ノ",
+    "direction": "right",
+    "bbox": [
+      207,
+      540,
+      223,
+      553
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "チ",
+    "direction": "bottom_left",
+    "bbox": [
+      158,
+      618,
+      174,
+      633
+    ]
+  },
+  {
+    "type": "symbol",
+    "text": "丨",
+    "bbox": [
+      180,
+      621,
+      196,
+      636
+    ]
+  },
+  {
+    "type": "symbol",
+    "text": "〇",
+    "bbox": [
+      180,
+      676,
+      196,
+      690
+    ]
+  },
+  {
+    "type": "symbol",
+    "text": "丨",
+    "bbox": [
+      180,
+      731,
+      196,
+      746
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "メ",
+    "direction": "bottom_left",
+    "bbox": [
+      158,
+      783,
+      176,
+      798
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ク",
+    "direction": "right",
+    "bbox": [
+      207,
+      760,
+      223,
+      774
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ソ",
+    "direction": "top_left",
+    "bbox": [
+      158,
+      800,
+      174,
+      813
+    ]
+  },
+  {
+    "type": "symbol",
+    "text": "丨",
+    "bbox": [
+      180,
+      841,
+      196,
+      856
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "コ",
+    "direction": "top_left",
+    "bbox": [
+      158,
+      855,
+      176,
+      867
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "タ",
+    "direction": "bottom_right",
+    "bbox": [
+      207,
+      893,
+      225,
+      908
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "イ",
+    "direction": "top_left",
+    "bbox": [
+      158,
+      910,
+      174,
+      924
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "二",
+    "direction": "top_right",
+    "bbox": [
+      207,
+      910,
+      223,
+      923
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ホ",
+    "direction": "right",
+    "bbox": [
+      207,
+      925,
+      225,
+      940
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ナ",
+    "direction": "top_right",
+    "bbox": [
+      207,
+      965,
+      220,
+      977
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "下",
+    "direction": "bottom_left",
+    "bbox": [
+      158,
+      1003,
+      171,
+      1016
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ヨ",
+    "direction": "bottom_right",
+    "bbox": [
+      207,
+      1003,
+      225,
+      1016
+    ]
+  },
+  {
+    "type": "symbol",
+    "text": "丨",
+    "bbox": [
+      180,
+      1006,
+      196,
+      1021
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "コ",
+    "direction": "top_right",
+    "bbox": [
+      207,
+      1020,
+      225,
+      1032
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ノ",
+    "direction": "bottom_left",
+    "bbox": [
+      158,
+      1058,
+      174,
+      1071
+    ]
+  },
+  {
+    "type": "symbol",
+    "text": "丨",
+    "bbox": [
+      180,
+      1061,
+      196,
+      1076
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "チ",
+    "direction": "top_right",
+    "bbox": [
+      297,
+      85,
+      313,
+      100
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "サ",
+    "direction": "bottom_left",
+    "bbox": [
+      248,
+      123,
+      264,
+      137
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ツ",
+    "direction": "bottom_right",
+    "bbox": [
+      297,
+      123,
+      313,
+      135
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ヒ",
+    "direction": "right",
+    "bbox": [
+      297,
+      100,
+      315,
+      114
+    ]
+  },
+  {
+    "type": "symbol",
+    "text": "丨",
+    "bbox": [
+      270,
+      126,
+      286,
+      141
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "上",
+    "direction": "top_left",
+    "bbox": [
+      248,
+      140,
+      264,
+      155
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "フ",
+    "direction": "top_right",
+    "bbox": [
+      297,
+      140,
+      315,
+      154
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "一",
+    "direction": "bottom_left",
+    "bbox": [
+      248,
+      178,
+      264,
+      187
+    ]
+  },
+  {
+    "type": "symbol",
+    "text": "〇",
+    "bbox": [
+      270,
+      181,
+      286,
+      195
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ン",
+    "direction": "top_left",
+    "bbox": [
+      248,
+      195,
+      264,
+      207
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "マ",
+    "direction": "right",
+    "bbox": [
+      297,
+      210,
+      313,
+      220
+    ]
+  },
+  {
+    "type": "symbol",
+    "text": "丨",
+    "bbox": [
+      270,
+      236,
+      286,
+      251
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ワ",
+    "direction": "top_left",
+    "bbox": [
+      248,
+      250,
+      261,
+      262
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "リ",
+    "direction": "bottom_right",
+    "bbox": [
+      297,
+      288,
+      313,
+      303
+    ]
+  },
+  {
+    "type": "symbol",
+    "text": "丨",
+    "bbox": [
+      270,
+      291,
+      286,
+      306
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ア",
+    "direction": "top_left",
+    "bbox": [
+      248,
+      305,
+      261,
+      316
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ハ",
+    "direction": "top_right",
+    "bbox": [
+      297,
+      305,
+      313,
+      315
+    ]
+  },
+  {
+    "type": "symbol",
+    "text": "〇",
+    "bbox": [
+      270,
+      346,
+      286,
+      360
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ヘ",
+    "direction": "top_left",
+    "bbox": [
+      248,
+      360,
+      264,
+      369
+    ]
+  },
+  {
+    "type": "symbol",
+    "text": "丨",
+    "bbox": [
+      270,
+      401,
+      286,
+      416
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "上",
+    "direction": "top_left",
+    "bbox": [
+      248,
+      415,
+      261,
+      427
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ケ",
+    "direction": "bottom_right",
+    "bbox": [
+      297,
+      453,
+      313,
+      468
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "モ",
+    "direction": "top_left",
+    "bbox": [
+      248,
+      470,
+      264,
+      482
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ナ",
+    "direction": "top_right",
+    "bbox": [
+      297,
+      470,
+      313,
+      483
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ス",
+    "direction": "bottom_left",
+    "bbox": [
+      248,
+      508,
+      266,
+      521
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "フ",
+    "direction": "bottom_right",
+    "bbox": [
+      297,
+      508,
+      313,
+      521
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "コ",
+    "direction": "top_left",
+    "bbox": [
+      248,
+      525,
+      264,
+      536
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ラ",
+    "direction": "bottom_right",
+    "bbox": [
+      297,
+      563,
+      313,
+      577
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ル",
+    "direction": "bottom_left",
+    "bbox": [
+      248,
+      618,
+      261,
+      629
+    ]
+  },
+  {
+    "type": "symbol",
+    "text": "丨",
+    "bbox": [
+      270,
+      621,
+      286,
+      636
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ヤ",
+    "direction": "top_right",
+    "bbox": [
+      297,
+      635,
+      313,
+      649
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ヤ",
+    "direction": "bottom_right",
+    "bbox": [
+      297,
+      673,
+      310,
+      684
+    ]
+  },
+  {
+    "type": "symbol",
+    "text": "丨",
+    "bbox": [
+      270,
+      676,
+      286,
+      691
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ネ",
+    "direction": "bottom_left",
+    "bbox": [
+      248,
+      728,
+      264,
+      743
+    ]
+  },
+  {
+    "type": "symbol",
+    "text": "〇",
+    "bbox": [
+      270,
+      731,
+      286,
+      745
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ラ",
+    "direction": "right",
+    "bbox": [
+      297,
+      815,
+      315,
+      829
+    ]
+  },
+  {
+    "type": "symbol",
+    "text": "丨",
+    "bbox": [
+      270,
+      841,
+      286,
+      856
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "イ",
+    "direction": "bottom_left",
+    "bbox": [
+      248,
+      893,
+      266,
+      908
+    ]
+  },
+  {
+    "type": "symbol",
+    "text": "丨",
+    "bbox": [
+      270,
+      896,
+      286,
+      911
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "サ",
+    "direction": "top_left",
+    "bbox": [
+      248,
+      910,
+      264,
+      924
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "テ",
+    "direction": "top_right",
+    "bbox": [
+      297,
+      910,
+      310,
+      921
+    ]
+  },
+  {
+    "type": "symbol",
+    "text": "〇",
+    "bbox": [
+      270,
+      951,
+      286,
+      965
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "下",
+    "direction": "top_left",
+    "bbox": [
+      248,
+      965,
+      264,
+      980
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ユ",
+    "direction": "bottom_left",
+    "bbox": [
+      248,
+      1003,
+      261,
+      1012
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "エ",
+    "direction": "right",
+    "bbox": [
+      297,
+      980,
+      313,
+      991
+    ]
+  },
+  {
+    "type": "symbol",
+    "text": "丨",
+    "bbox": [
+      270,
+      1006,
+      286,
+      1021
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "レ",
+    "direction": "top_left",
+    "bbox": [
+      338,
+      85,
+      351,
+      96
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ヌ",
+    "direction": "bottom_left",
+    "bbox": [
+      338,
+      123,
+      356,
+      137
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "レ",
+    "direction": "top_left",
+    "bbox": [
+      338,
+      140,
+      356,
+      153
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "一",
+    "direction": "top_left",
+    "bbox": [
+      338,
+      195,
+      354,
+      204
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "オ",
+    "direction": "bottom_left",
+    "bbox": [
+      338,
+      233,
+      354,
+      247
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "メ",
+    "direction": "right",
+    "bbox": [
+      387,
+      210,
+      405,
+      225
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "サ",
+    "direction": "top_left",
+    "bbox": [
+      338,
+      250,
+      351,
+      262
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ヌ",
+    "direction": "top_right",
+    "bbox": [
+      387,
+      250,
+      400,
+      261
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "リ",
+    "direction": "right",
+    "bbox": [
+      387,
+      265,
+      403,
+      278
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "セ",
+    "direction": "top_left",
+    "bbox": [
+      338,
+      305,
+      354,
+      318
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "チ",
+    "direction": "top_right",
+    "bbox": [
+      387,
+      305,
+      403,
+      320
+    ]
+  },
+  {
+    "type": "symbol",
+    "text": "〇",
+    "bbox": [
+      360,
+      346,
+      376,
+      360
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ツ",
+    "direction": "top_left",
+    "bbox": [
+      338,
+      360,
+      354,
+      372
+    ]
+  },
+  {
+    "type": "symbol",
+    "text": "〇",
+    "bbox": [
+      360,
+      401,
+      376,
+      415
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ム",
+    "direction": "top_right",
+    "bbox": [
+      387,
+      415,
+      403,
+      427
+    ]
+  },
+  {
+    "type": "symbol",
+    "text": "丨",
+    "bbox": [
+      360,
+      456,
+      376,
+      471
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ヌ",
+    "direction": "top_left",
+    "bbox": [
+      338,
+      470,
+      354,
+      484
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "シ",
+    "direction": "right",
+    "bbox": [
+      387,
+      485,
+      400,
+      496
+    ]
+  },
+  {
+    "type": "symbol",
+    "text": "丨",
+    "bbox": [
+      360,
+      511,
+      376,
+      526
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "サ",
+    "direction": "top_right",
+    "bbox": [
+      387,
+      525,
+      400,
+      537
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "シ",
+    "direction": "bottom_right",
+    "bbox": [
+      387,
+      563,
+      403,
+      576
+    ]
+  },
+  {
+    "type": "symbol",
+    "text": "丨",
+    "bbox": [
+      360,
+      566,
+      376,
+      581
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "オ",
+    "direction": "bottom_right",
+    "bbox": [
+      387,
+      618,
+      400,
+      630
+    ]
+  },
+  {
+    "type": "symbol",
+    "text": "〇",
+    "bbox": [
+      360,
+      621,
+      376,
+      635
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "タ",
+    "direction": "bottom_left",
+    "bbox": [
+      338,
+      673,
+      356,
+      688
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ナ",
+    "direction": "bottom_right",
+    "bbox": [
+      387,
+      673,
+      403,
+      686
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "カ",
+    "direction": "right",
+    "bbox": [
+      387,
+      650,
+      403,
+      664
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ロ",
+    "direction": "bottom_right",
+    "bbox": [
+      387,
+      728,
+      403,
+      739
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "モ",
+    "direction": "top_left",
+    "bbox": [
+      338,
+      745,
+      354,
+      757
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "タ",
+    "direction": "top_right",
+    "bbox": [
+      387,
+      745,
+      405,
+      760
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ロ",
+    "direction": "bottom_right",
+    "bbox": [
+      387,
+      783,
+      403,
+      794
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "シ",
+    "direction": "bottom_left",
+    "bbox": [
+      338,
+      838,
+      354,
+      850
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ウ",
+    "direction": "bottom_right",
+    "bbox": [
+      387,
+      838,
+      403,
+      852
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "タ",
+    "direction": "top_left",
+    "bbox": [
+      338,
+      855,
+      354,
+      869
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ユ",
+    "direction": "bottom_left",
+    "bbox": [
+      338,
+      893,
+      354,
+      904
+    ]
+  },
+  {
+    "type": "symbol",
+    "text": "丨",
+    "bbox": [
+      360,
+      896,
+      376,
+      911
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "コ",
+    "direction": "bottom_left",
+    "bbox": [
+      338,
+      1003,
+      351,
+      1012
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "二",
+    "direction": "bottom_right",
+    "bbox": [
+      387,
+      1003,
+      405,
+      1017
+    ]
+  },
+  {
+    "type": "symbol",
+    "text": "〇",
+    "bbox": [
+      360,
+      1006,
+      376,
+      1020
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "セ",
+    "direction": "top_right",
+    "bbox": [
+      387,
+      1020,
+      403,
+      1033
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ソ",
+    "direction": "bottom_right",
+    "bbox": [
+      387,
+      1058,
+      403,
+      1071
+    ]
+  },
+  {
+    "type": "symbol",
+    "text": "〇",
+    "bbox": [
+      360,
+      1061,
+      376,
+      1075
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ウ",
+    "direction": "right",
+    "bbox": [
+      387,
+      1090,
+      400,
+      1102
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "カ",
+    "direction": "top_left",
+    "bbox": [
+      428,
+      85,
+      446,
+      100
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "イ",
+    "direction": "top_right",
+    "bbox": [
+      477,
+      85,
+      495,
+      100
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ユ",
+    "direction": "bottom_left",
+    "bbox": [
+      428,
+      123,
+      446,
+      135
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "シ",
+    "direction": "bottom_right",
+    "bbox": [
+      477,
+      123,
+      495,
+      136
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ヘ",
+    "direction": "top_left",
+    "bbox": [
+      428,
+      140,
+      441,
+      148
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ロ",
+    "direction": "bottom_left",
+    "bbox": [
+      428,
+      233,
+      441,
+      242
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ヌ",
+    "direction": "right",
+    "bbox": [
+      477,
+      210,
+      493,
+      222
+    ]
+  },
+  {
+    "type": "symbol",
+    "text": "〇",
+    "bbox": [
+      450,
+      236,
+      466,
+      250
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "モ",
+    "direction": "top_left",
+    "bbox": [
+      428,
+      250,
+      446,
+      263
+    ]
+  },
+  {
+    "type": "symbol",
+    "text": "丨",
+    "bbox": [
+      450,
+      291,
+      466,
+      306
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "チ",
+    "direction": "top_right",
+    "bbox": [
+      477,
+      305,
+      490,
+      317
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ア",
+    "direction": "right",
+    "bbox": [
+      477,
+      320,
+      495,
+      334
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ア",
+    "direction": "bottom_left",
+    "bbox": [
+      428,
+      398,
+      444,
+      412
+    ]
+  },
+  {
+    "type": "symbol",
+    "text": "丨",
+    "bbox": [
+      450,
+      401,
+      466,
+      416
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ミ",
+    "direction": "bottom_left",
+    "bbox": [
+      428,
+      453,
+      444,
+      466
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ウ",
+    "direction": "right",
+    "bbox": [
+      477,
+      430,
+      495,
+      446
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "エ",
+    "direction": "top_left",
+    "bbox": [
+      428,
+      470,
+      446,
+      482
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ム",
+    "direction": "top_right",
+    "bbox": [
+      477,
+      470,
+      493,
+      483
+    ]
+  },
+  {
+    "type": "symbol",
+    "text": "〇",
+    "bbox": [
+      450,
+      511,
+      466,
+      525
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "フ",
+    "direction": "top_right",
+    "bbox": [
+      477,
+      525,
+      493,
+      538
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ハ",
+    "direction": "bottom_right",
+    "bbox": [
+      477,
+      563,
+      493,
+      573
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "二",
+    "direction": "right",
+    "bbox": [
+      477,
+      540,
+      493,
+      552
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ヤ",
+    "direction": "top_left",
+    "bbox": [
+      428,
+      580,
+      441,
+      591
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "レ",
+    "direction": "right",
+    "bbox": [
+      477,
+      595,
+      493,
+      608
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ス",
+    "direction": "top_left",
+    "bbox": [
+      428,
+      690,
+      444,
+      702
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "タ",
+    "direction": "bottom_right",
+    "bbox": [
+      477,
+      728,
+      493,
+      742
+    ]
+  },
+  {
+    "type": "symbol",
+    "text": "丨",
+    "bbox": [
+      450,
+      731,
+      466,
+      746
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "シ",
+    "direction": "bottom_left",
+    "bbox": [
+      428,
+      783,
+      441,
+      794
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "エ",
+    "direction": "bottom_right",
+    "bbox": [
+      477,
+      783,
+      490,
+      792
+    ]
+  },
+  {
+    "type": "symbol",
+    "text": "〇",
+    "bbox": [
+      450,
+      786,
+      466,
+      800
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ラ",
+    "direction": "bottom_left",
+    "bbox": [
+      428,
+      893,
+      444,
+      907
+    ]
+  },
+  {
+    "type": "symbol",
+    "text": "〇",
+    "bbox": [
+      450,
+      896,
+      466,
+      910
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "上",
+    "direction": "top_left",
+    "bbox": [
+      428,
+      910,
+      444,
+      925
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ト",
+    "direction": "bottom_right",
+    "bbox": [
+      477,
+      948,
+      490,
+      959
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ユ",
+    "direction": "right",
+    "bbox": [
+      477,
+      925,
+      493,
+      936
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ハ",
+    "direction": "top_left",
+    "bbox": [
+      428,
+      965,
+      441,
+      973
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "サ",
+    "direction": "top_right",
+    "bbox": [
+      477,
+      1020,
+      493,
+      1034
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ラ",
+    "direction": "bottom_left",
+    "bbox": [
+      428,
+      1058,
+      444,
+      1072
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "メ",
+    "direction": "top_right",
+    "bbox": [
+      567,
+      140,
+      585,
+      155
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "レ",
+    "direction": "bottom_left",
+    "bbox": [
+      518,
+      178,
+      534,
+      191
+    ]
+  },
+  {
+    "type": "symbol",
+    "text": "丨",
+    "bbox": [
+      540,
+      181,
+      556,
+      196
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ン",
+    "direction": "top_right",
+    "bbox": [
+      567,
+      195,
+      583,
+      207
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ロ",
+    "direction": "bottom_left",
+    "bbox": [
+      518,
+      233,
+      534,
+      244
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ネ",
+    "direction": "right",
+    "bbox": [
+      567,
+      210,
+      585,
+      226
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "コ",
+    "direction": "bottom_right",
+    "bbox": [
+      567,
+      288,
+      585,
+      300
+    ]
+  },
+  {
+    "type": "symbol",
+    "text": "〇",
+    "bbox": [
+      540,
+      291,
+      556,
+      305
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ル",
+    "direction": "top_right",
+    "bbox": [
+      567,
+      305,
+      580,
+      316
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "テ",
+    "direction": "bottom_left",
+    "bbox": [
+      518,
+      343,
+      536,
+      359
+    ]
+  },
+  {
+    "type": "symbol",
+    "text": "丨",
+    "bbox": [
+      540,
+      346,
+      556,
+      361
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ヌ",
+    "direction": "bottom_right",
+    "bbox": [
+      567,
+      398,
+      580,
+      409
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "モ",
+    "direction": "top_left",
+    "bbox": [
+      518,
+      415,
+      536,
+      428
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ウ",
+    "direction": "bottom_left",
+    "bbox": [
+      518,
+      453,
+      536,
+      469
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ウ",
+    "direction": "bottom_left",
+    "bbox": [
+      518,
+      618,
+      536,
+      634
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ヤ",
+    "direction": "bottom_right",
+    "bbox": [
+      567,
+      618,
+      583,
+      632
+    ]
+  },
+  {
+    "type": "symbol",
+    "text": "〇",
+    "bbox": [
+      540,
+      621,
+      556,
+      635
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "マ",
+    "direction": "right",
+    "bbox": [
+      567,
+      650,
+      583,
+      661
+    ]
+  },
+  {
+    "type": "symbol",
+    "text": "〇",
+    "bbox": [
+      540,
+      676,
+      556,
+      690
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ヘ",
+    "direction": "top_left",
+    "bbox": [
+      518,
+      690,
+      531,
+      698
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "下",
+    "direction": "top_right",
+    "bbox": [
+      567,
+      690,
+      580,
+      703
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ロ",
+    "direction": "right",
+    "bbox": [
+      567,
+      760,
+      583,
+      771
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "メ",
+    "direction": "right",
+    "bbox": [
+      567,
+      815,
+      585,
+      830
+    ]
+  },
+  {
+    "type": "symbol",
+    "text": "丨",
+    "bbox": [
+      540,
+      841,
+      556,
+      856
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ヨ",
+    "direction": "right",
+    "bbox": [
+      567,
+      870,
+      583,
+      882
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ル",
+    "direction": "top_right",
+    "bbox": [
+      567,
+      910,
+      580,
+      921
+    ]
+  },
+  {
+    "type": "symbol",
+    "text": "〇",
+    "bbox": [
+      540,
+      951,
+      556,
+      965
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ヲ",
+    "direction": "bottom_left",
+    "bbox": [
+      518,
+      1003,
+      531,
+      1014
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ル",
+    "direction": "right",
+    "bbox": [
+      567,
+      980,
+      580,
+      991
+    ]
+  },
+  {
+    "type": "symbol",
+    "text": "〇",
+    "bbox": [
+      540,
+      1006,
+      556,
+      1020
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "イ",
+    "direction": "bottom_right",
+    "bbox": [
+      567,
+      1058,
+      583,
+      1071
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "メ",
+    "direction": "top_left",
+    "bbox": [
+      518,
+      1075,
+      534,
+      1089
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "レ",
+    "direction": "bottom_right",
+    "bbox": [
+      567,
+      1113,
+      585,
+      1126
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "テ",
+    "direction": "top_left",
+    "bbox": [
+      608,
+      85,
+      626,
+      101
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ラ",
+    "direction": "top_right",
+    "bbox": [
+      657,
+      85,
+      675,
+      99
+    ]
+  },
+  {
+    "type": "symbol",
+    "text": "丨",
+    "bbox": [
+      630,
+      126,
+      646,
+      141
+    ]
+  },
+  {
+    "type": "symbol",
+    "text": "〇",
+    "bbox": [
+      630,
+      181,
+      646,
+      195
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ハ",
+    "direction": "bottom_right",
+    "bbox": [
+      657,
+      233,
+      673,
+      243
+    ]
+  },
+  {
+    "type": "symbol",
+    "text": "〇",
+    "bbox": [
+      630,
+      236,
+      646,
+      250
+    ]
+  },
+  {
+    "type": "symbol",
+    "text": "丨",
+    "bbox": [
+      630,
+      291,
+      646,
+      306
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ト",
+    "direction": "bottom_left",
+    "bbox": [
+      608,
+      343,
+      624,
+      357
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ラ",
+    "direction": "right",
+    "bbox": [
+      657,
+      320,
+      673,
+      334
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ツ",
+    "direction": "top_left",
+    "bbox": [
+      608,
+      360,
+      624,
+      373
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ヲ",
+    "direction": "top_right",
+    "bbox": [
+      657,
+      360,
+      673,
+      373
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ナ",
+    "direction": "bottom_left",
+    "bbox": [
+      608,
+      398,
+      624,
+      411
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ミ",
+    "direction": "right",
+    "bbox": [
+      657,
+      375,
+      673,
+      388
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ハ",
+    "direction": "right",
+    "bbox": [
+      657,
+      430,
+      673,
+      440
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ヲ",
+    "direction": "bottom_left",
+    "bbox": [
+      608,
+      508,
+      626,
+      523
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "レ",
+    "direction": "right",
+    "bbox": [
+      657,
+      485,
+      673,
+      498
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ル",
+    "direction": "top_left",
+    "bbox": [
+      608,
+      525,
+      621,
+      536
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ン",
+    "direction": "top_right",
+    "bbox": [
+      657,
+      525,
+      673,
+      537
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ネ",
+    "direction": "bottom_right",
+    "bbox": [
+      657,
+      563,
+      670,
+      576
+    ]
+  },
+  {
+    "type": "symbol",
+    "text": "〇",
+    "bbox": [
+      630,
+      566,
+      646,
+      580
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "イ",
+    "direction": "top_left",
+    "bbox": [
+      608,
+      580,
+      626,
+      595
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ヒ",
+    "direction": "right",
+    "bbox": [
+      657,
+      595,
+      673,
+      607
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "フ",
+    "direction": "top_right",
+    "bbox": [
+      657,
+      745,
+      673,
+      758
+    ]
+  },
+  {
+    "type": "symbol",
+    "text": "丨",
+    "bbox": [
+      630,
+      786,
+      646,
+      801
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "フ",
+    "direction": "top_left",
+    "bbox": [
+      608,
+      800,
+      621,
+      811
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ヲ",
+    "direction": "top_right",
+    "bbox": [
+      657,
+      800,
+      670,
+      811
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ツ",
+    "direction": "bottom_right",
+    "bbox": [
+      657,
+      838,
+      675,
+      852
+    ]
+  },
+  {
+    "type": "symbol",
+    "text": "丨",
+    "bbox": [
+      630,
+      841,
+      646,
+      856
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ラ",
+    "direction": "bottom_left",
+    "bbox": [
+      608,
+      893,
+      621,
+      905
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ヨ",
+    "direction": "top_left",
+    "bbox": [
+      608,
+      910,
+      626,
+      923
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ト",
+    "direction": "bottom_right",
+    "bbox": [
+      657,
+      948,
+      670,
+      959
+    ]
+  },
+  {
+    "type": "symbol",
+    "text": "〇",
+    "bbox": [
+      630,
+      951,
+      646,
+      965
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ニ",
+    "direction": "right",
+    "bbox": [
+      657,
+      980,
+      670,
+      988
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "一",
+    "direction": "bottom_left",
+    "bbox": [
+      608,
+      1058,
+      624,
+      1067
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ヘ",
+    "direction": "bottom_right",
+    "bbox": [
+      657,
+      1058,
+      673,
+      1067
+    ]
+  },
+  {
+    "type": "symbol",
+    "text": "丨",
+    "bbox": [
+      630,
+      1061,
+      646,
+      1076
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ホ",
+    "direction": "right",
+    "bbox": [
+      657,
+      1090,
+      673,
+      1104
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ウ",
+    "direction": "right",
+    "bbox": [
+      747,
+      100,
+      765,
+      116
+    ]
+  },
+  {
+    "type": "symbol",
+    "text": "〇",
+    "bbox": [
+      720,
+      126,
+      736,
+      140
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "一",
+    "direction": "top_left",
+    "bbox": [
+      698,
+      140,
+      711,
+      148
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "フ",
+    "direction": "bottom_left",
+    "bbox": [
+      698,
+      178,
+      714,
+      191
+    ]
+  },
+  {
+    "type": "symbol",
+    "text": "〇",
+    "bbox": [
+      720,
+      181,
+      736,
+      195
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ム",
+    "direction": "top_left",
+    "bbox": [
+      698,
+      195,
+      714,
+      207
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "上",
+    "direction": "top_right",
+    "bbox": [
+      747,
+      195,
+      763,
+      210
+    ]
+  },
+  {
+    "type": "symbol",
+    "text": "〇",
+    "bbox": [
+      720,
+      236,
+      736,
+      250
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "サ",
+    "direction": "top_left",
+    "bbox": [
+      698,
+      250,
+      716,
+      265
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "キ",
+    "direction": "bottom_left",
+    "bbox": [
+      698,
+      288,
+      711,
+      300
+    ]
+  },
+  {
+    "type": "symbol",
+    "text": "丨",
+    "bbox": [
+      720,
+      291,
+      736,
+      306
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "コ",
+    "direction": "bottom_left",
+    "bbox": [
+      698,
+      343,
+      716,
+      355
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "テ",
+    "direction": "bottom_right",
+    "bbox": [
+      747,
+      343,
+      760,
+      354
+    ]
+  },
+  {
+    "type": "symbol",
+    "text": "〇",
+    "bbox": [
+      720,
+      346,
+      736,
+      360
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ト",
+    "direction": "right",
+    "bbox": [
+      747,
+      375,
+      765,
+      390
+    ]
+  },
+  {
+    "type": "symbol",
+    "text": "〇",
+    "bbox": [
+      720,
+      401,
+      736,
+      415
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "一",
+    "direction": "bottom_right",
+    "bbox": [
+      747,
+      453,
+      760,
+      461
+    ]
+  },
+  {
+    "type": "symbol",
+    "text": "〇",
+    "bbox": [
+      720,
+      566,
+      736,
+      580
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "コ",
+    "direction": "bottom_right",
+    "bbox": [
+      747,
+      618,
+      760,
+      627
+    ]
+  },
+  {
+    "type": "symbol",
+    "text": "〇",
+    "bbox": [
+      720,
+      621,
+      736,
+      635
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ノ",
+    "direction": "bottom_right",
+    "bbox": [
+      747,
+      673,
+      760,
+      684
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "マ",
+    "direction": "top_left",
+    "bbox": [
+      698,
+      690,
+      716,
+      701
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ノ",
+    "direction": "bottom_left",
+    "bbox": [
+      698,
+      728,
+      711,
+      739
+    ]
+  },
+  {
+    "type": "symbol",
+    "text": "丨",
+    "bbox": [
+      720,
+      731,
+      736,
+      746
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ケ",
+    "direction": "top_right",
+    "bbox": [
+      747,
+      745,
+      763,
+      759
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "サ",
+    "direction": "bottom_left",
+    "bbox": [
+      698,
+      783,
+      716,
+      798
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "フ",
+    "direction": "right",
+    "bbox": [
+      747,
+      760,
+      765,
+      774
+    ]
+  },
+  {
+    "type": "symbol",
+    "text": "丨",
+    "bbox": [
+      720,
+      786,
+      736,
+      801
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ソ",
+    "direction": "bottom_left",
+    "bbox": [
+      698,
+      838,
+      714,
+      851
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "一",
+    "direction": "right",
+    "bbox": [
+      747,
+      815,
+      765,
+      825
+    ]
+  },
+  {
+    "type": "symbol",
+    "text": "〇",
+    "bbox": [
+      720,
+      841,
+      736,
+      855
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "ロ",
+    "direction": "top_left",
+    "bbox": [
+      698,
+      855,
+      714,
+      866
+    ]
+  },
+  {
+    "type": "symbol",
+    "text": "〇",
+    "bbox": [
+      720,
+      896,
+      736,
+      910
+    ]
+  },
+  {
+    "type": "symbol",
+    "text": "〇",
+    "bbox": [
+      720,
+      951,
+      736,
+      965
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "サ",
+    "direction": "top_left",
+    "bbox": [
+      698,
+      965,
+      714,
+      979
+    ]
+  },
+  {
+    "type": "symbol",
+    "text": "丨",
+    "bbox": [
+      720,
+      1006,
+      736,
+      1021
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "サ",
+    "direction": "bottom_right",
+    "bbox": [
+      747,
+      1058,
+      763,
+      1072
+    ]
+  },
+  {
+    "type": "symbol",
+    "text": "〇",
+    "bbox": [
+      720,
+      1061,
+      736,
+      1075
+    ]
+  },
+  {
+    "type": "kana",
+    "text": "サ",
+    "direction": "top_right",
+    "bbox": [
+      747,
+      1075,
+      763,
+      1089
+    ]
+  },
+  {
+    "type": "symbol",
+    "text": "丨",
+    "bbox": [
+      720,
+      1116,
+      736,
+      1131
+    ]
+  }
+]
