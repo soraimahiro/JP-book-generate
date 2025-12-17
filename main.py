@@ -28,8 +28,9 @@ def get_fonts():
     if kana_font_cache is None:
         kana_font_cache = [
             ImageFont.truetype('font/YujiSyuku-Regular.ttf', 16, encoding='utf-8'),
-            ImageFont.truetype('font/YujiSyuku-Regular.ttf', 16, encoding='utf-8'),
-            ImageFont.truetype('font/KleeOne-SemiBold.ttf', 18, encoding='utf-8'),
+            ImageFont.truetype('font/YujiSyuku-Regular.ttf', 18, encoding='utf-8'),
+            ImageFont.truetype('font/YujiSyuku-Regular.ttf', 20, encoding='utf-8'),
+            ImageFont.truetype('font/KleeOne-SemiBold.ttf', 16, encoding='utf-8'),
             ImageFont.truetype('font/KleeOne-SemiBold.ttf', 18, encoding='utf-8')
         ]
     return kanji_font_cache, kana_font_cache
@@ -84,8 +85,8 @@ def create_aged_paper_background(width, height):
         x1, x2 = max(0, x - spot_size), min(width, x + spot_size + 1)
         img_array[y1:y2, x1:x2] = np.maximum(img_array[y1:y2, x1:x2] - darkness, 0)
     
-    # 使用 cv2 進行高斯模糊（比 PIL 快）
-    img_array = cv2.GaussianBlur(img_array, (3, 3), 0.8)
+    # 使用 cv2 進行高斯模糊
+    img_array = cv2.GaussianBlur(img_array, (3, 3), 1)
     
     img = Image.fromarray(img_array, mode='RGB')
     return img
@@ -114,9 +115,9 @@ def add_annotations(center_x, center_y, char_size, write, have_symbol, annotatio
                 x_pos = base_x
                 if direction == 'left':
                     x_pos -= width
-                    x_pos += random.randint(-3, 1)
+                    x_pos += random.randint(-1, 5)
                 else:
-                    x_pos += random.randint(-1, 3)
+                    x_pos += random.randint(-5, 1)
                 y_pos = center_y + random.randint(-3, 3)
                 
                 write.text((x_pos, y_pos), kana_text, (0, 0, 0), font=font)
@@ -137,9 +138,11 @@ def add_annotations(center_x, center_y, char_size, write, have_symbol, annotatio
                     
                     x_pos = base_x
                     if direction == 'left':
-                        x_pos -= width + random.randint(-3, 1)
+                        x_pos -= width
+                        x_pos += random.randint(-1, 5)
+
                     else:
-                        x_pos += random.randint(-1, 3)
+                        x_pos += random.randint(-5, 1)
                     
                     if is_down:
                         y_pos = center_y + height // 2 + random.randint(0, 3)
@@ -174,6 +177,65 @@ def add_annotations(center_x, center_y, char_size, write, have_symbol, annotatio
             'bbox': [symbol_x, symbol_y, symbol_x + width, symbol_y + height]
         })
 
+def apply_text_defects(img):
+    """對文字添加掃描缺陷效果：不規則邊緣和白點"""
+    img_array = np.array(img)
+    
+    # 1. 找出文字區域（黑色區域）
+    # 將圖像轉為灰度
+    gray = cv2.cvtColor(img_array, cv2.COLOR_RGB2GRAY)
+    
+    # 二值化，找出文字（較暗的區域）
+    _, text_mask = cv2.threshold(gray, 200, 255, cv2.THRESH_BINARY_INV)
+    
+    # 2. 製造不規則邊緣效果
+    # 隨機侵蝕和膨脹
+    # if random.random() < 0.7:
+    #     # 輕微侵蝕（讓文字變細，邊緣不完整）
+    #     kernel_size = random.choice([2, 3])
+    #     kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (kernel_size, kernel_size))
+    #     text_mask = cv2.erode(text_mask, kernel, iterations=1)
+    
+    # 3. 在文字區域添加白色噪點
+    text_coords = np.where(text_mask > 0)
+    if len(text_coords[0]) > 0:
+        # 隨機選擇一些文字像素點變成白色
+        num_white_spots = int(len(text_coords[0]) * random.uniform(0.02, 0.08))
+        indices = np.random.choice(len(text_coords[0]), num_white_spots, replace=False)
+        
+        for idx in indices:
+            y, x = text_coords[0][idx], text_coords[1][idx]
+            # 創建小白點（1-2像素）
+            # spot_size = random.choice([0, 1])
+            # y1, y2 = max(0, y - spot_size), min(img_array.shape[0], y + spot_size + 1)
+            # x1, x2 = max(0, x - spot_size), min(img_array.shape[1], x + spot_size + 1)
+            
+            # 設置為背景色或更亮的顏色
+            brightness = random.randint(200, 255)
+            img_array[y, x] = brightness
+    
+    # 4. 添加一些邊緣殘缺效果
+    # if random.random() < 0.5:
+    #     # 找出文字邊緣
+    #     edges = cv2.Canny(text_mask, 50, 150)
+    #     edge_coords = np.where(edges > 0)
+        
+    #     if len(edge_coords[0]) > 0:
+    #         # 在邊緣隨機添加小缺口
+    #         num_defects = int(len(edge_coords[0]) * random.uniform(0.05, 0.15))
+    #         indices = np.random.choice(len(edge_coords[0]), num_defects, replace=False)
+            
+    #         for idx in indices:
+    #             y, x = edge_coords[0][idx], edge_coords[1][idx]
+    #             defect_size = random.randint(1, 3)
+    #             y1, y2 = max(0, y - defect_size), min(img_array.shape[0], y + defect_size + 1)
+    #             x1, x2 = max(0, x - defect_size), min(img_array.shape[1], x + defect_size + 1)
+                
+    #             brightness = random.randint(200, 255)
+    #             img_array[y1:y2, x1:x2] = brightness
+    
+    return img_array
+
 def regular_img(border=True):
     kanji_font, _ = get_fonts()
     
@@ -203,6 +265,9 @@ def regular_img(border=True):
         if border:
             write.rectangle((x_border, 50, x_border + 90, 1150), outline=(0, 0, 0), width=2)
     
+    # 應用文字缺陷效果
+    img = apply_text_defects(img)
+    
     return img, all_annotations
 
 IMAGE_DIR = "results/images/"
@@ -213,18 +278,18 @@ if __name__ == "__main__":
     for i in tqdm(range(10)):
         img, all_annotations = regular_img(border=True)
         # cvimg = cv2.cvtColor(np.array(img), cv2.COLOR_RGB2BGR)
-        # cv2.imwrite(f"{IMAGE_DIR}border_{i}.jpg", cvimg)
-        img.save(f"{IMAGE_DIR}border_{i}.jpg")
+        cv2.imwrite(f"{IMAGE_DIR}border_{i}.jpg", img)
+        # img.save(f"{IMAGE_DIR}border_{i}.jpg")
         
         with open(f'{LABEL_DIR}border_{i}.json', 'w', encoding='utf-8') as f:
             json.dump(all_annotations, f, ensure_ascii=False, indent=2)
 
     for i in tqdm(range(10)):
         img, all_annotations = regular_img(border=False)
-        img.save(f"{IMAGE_DIR}noborder_{i}.jpg")
+        # img.save(f"{IMAGE_DIR}noborder_{i}.jpg")
         
         # cvimg = cv2.cvtColor(np.array(img), cv2.COLOR_RGB2BGR)
-        # cv2.imwrite(f"{IMAGE_DIR}noborder_{i}.jpg", cvimg)
+        cv2.imwrite(f"{IMAGE_DIR}noborder_{i}.jpg", img)
         
         with open(f'{LABEL_DIR}noborder_{i}.json', 'w', encoding='utf-8') as f:
             json.dump(all_annotations, f, ensure_ascii=False, indent=2)
