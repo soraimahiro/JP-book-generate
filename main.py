@@ -20,20 +20,21 @@ def load_character(type):
         raise ValueError(f"Type '{type}' not found in character data.")
     return random.choice(all_chars[type])
 
-def get_fonts():
-    """快取字型物件"""
-    global kanji_font_cache, kana_font_cache
-    if kanji_font_cache is None:
-        kanji_font_cache = ImageFont.truetype('font/NotoSerifTC-Regular.ttf', 40, encoding='utf-8')
-    if kana_font_cache is None:
-        kana_font_cache = [
-            ImageFont.truetype('font/YujiSyuku-Regular.ttf', 16, encoding='utf-8'),
-            ImageFont.truetype('font/YujiSyuku-Regular.ttf', 18, encoding='utf-8'),
-            ImageFont.truetype('font/YujiSyuku-Regular.ttf', 20, encoding='utf-8'),
-            ImageFont.truetype('font/KleeOne-SemiBold.ttf', 16, encoding='utf-8'),
-            ImageFont.truetype('font/KleeOne-SemiBold.ttf', 18, encoding='utf-8')
-        ]
-    return kanji_font_cache, kana_font_cache
+def get_fonts(size=40):
+    """根據縮放因子創建字型，保持漢字:假名 = 3:1 的比例"""
+    # 假名大小約為漢字的 1/3，但有一些變化
+    kana_base_size = size // 3
+    
+    kanji_font = ImageFont.truetype('font/NotoSerifTC-Regular.ttf', size, encoding='utf-8')
+    kana_fonts = [
+        ImageFont.truetype('font/YujiSyuku-Regular.ttf', kana_base_size, encoding='utf-8'),
+        ImageFont.truetype('font/YujiSyuku-Regular.ttf', kana_base_size + 3, encoding='utf-8'),
+        ImageFont.truetype('font/YujiSyuku-Regular.ttf', kana_base_size + 5, encoding='utf-8'),
+        # ImageFont.truetype('font/KleeOne-SemiBold.ttf', kana_base_size, encoding='utf-8'),
+        # ImageFont.truetype('font/KleeOne-SemiBold.ttf', kana_base_size + 3, encoding='utf-8')
+    ]
+    
+    return kanji_font, kana_fonts
 
 def create_aged_paper_background(width, height):
     """創建模擬古書掃描的背景"""
@@ -86,14 +87,15 @@ def create_aged_paper_background(width, height):
         img_array[y1:y2, x1:x2] = np.maximum(img_array[y1:y2, x1:x2] - darkness, 0)
     
     # 使用 cv2 進行高斯模糊
-    img_array = cv2.GaussianBlur(img_array, (3, 3), 1)
+    img_array = cv2.GaussianBlur(img_array, (5, 5), 3)
     
     img = Image.fromarray(img_array, mode='RGB')
     return img
 
-def add_annotations(center_x, center_y, char_size, write, have_symbol, annotations, prob_kana=0.3):
+def add_annotations(center_x, center_y, char_size, write, have_symbol, annotations, prob_kana=0.3, kana_fonts=None):
     """在兩個字中間插入假名和符號"""
-    _, kana_fonts = get_fonts()
+    if kana_fonts is None:
+        return
     
     directions = {
         'left': center_x - char_size // 2,
@@ -107,13 +109,11 @@ def add_annotations(center_x, center_y, char_size, write, have_symbol, annotatio
             if num_kana == 1:
                 font = random.choice(kana_fonts)
                 kana_text = load_character('kana')
-                
-                bbox = font.getbbox(kana_text)
-                width = bbox[2] - bbox[0]
-                height = bbox[3] - bbox[1]
 
                 x_pos = base_x
                 if direction == 'left':
+                    bbox = font.getbbox(kana_text)
+                    width = bbox[2] - bbox[0]
                     x_pos -= width
                     x_pos += random.randint(-1, 5)
                 else:
@@ -122,10 +122,13 @@ def add_annotations(center_x, center_y, char_size, write, have_symbol, annotatio
                 
                 write.text((x_pos, y_pos), kana_text, (0, 0, 0), font=font)
                 
+                # 使用 textbbox 獲取實際繪製的邊界框
+                actual_bbox = write.textbbox((x_pos, y_pos), kana_text, font=font)
+                
                 annotations.append({
                     'type': 'kana',
                     'text': kana_text,
-                    'bbox': [x_pos, y_pos, x_pos + width, y_pos + height]
+                    'bbox': list(actual_bbox)
                 })
             else:
                 # 兩個假名
@@ -140,7 +143,6 @@ def add_annotations(center_x, center_y, char_size, write, have_symbol, annotatio
                     if direction == 'left':
                         x_pos -= width
                         x_pos += random.randint(-1, 5)
-
                     else:
                         x_pos += random.randint(-5, 1)
                     
@@ -151,10 +153,13 @@ def add_annotations(center_x, center_y, char_size, write, have_symbol, annotatio
                     
                     write.text((x_pos, y_pos), kana_text, (0, 0, 0), font=font)
                     
+                    # 使用 textbbox 獲取實際繪製的邊界框
+                    actual_bbox = write.textbbox((x_pos, y_pos), kana_text, font=font)
+                    
                     annotations.append({
                         'type': 'kana',
                         'text': kana_text,
-                        'bbox': [x_pos, y_pos, x_pos + width, y_pos + height]
+                        'bbox': list(actual_bbox)
                     })
     
     if have_symbol and random.random() < 0.5:
@@ -167,14 +172,13 @@ def add_annotations(center_x, center_y, char_size, write, have_symbol, annotatio
         
         write.text((symbol_x, symbol_y), symbol, (0, 0, 0), font=font)
         
-        bbox = font.getbbox(symbol)
-        width = bbox[2] - bbox[0]
-        height = bbox[3] - bbox[1]
+        # 使用 textbbox 獲取實際繪製的邊界框
+        actual_bbox = write.textbbox((symbol_x, symbol_y), symbol, font=font)
         
         annotations.append({
             'type': 'symbol',
             'text': symbol,
-            'bbox': [symbol_x, symbol_y, symbol_x + width, symbol_y + height]
+            'bbox': list(actual_bbox)
         })
 
 def apply_text_defects(img):
@@ -186,84 +190,78 @@ def apply_text_defects(img):
     gray = cv2.cvtColor(img_array, cv2.COLOR_RGB2GRAY)
     
     # 二值化，找出文字（較暗的區域）
-    _, text_mask = cv2.threshold(gray, 200, 255, cv2.THRESH_BINARY_INV)
-    
-    # 2. 製造不規則邊緣效果
-    # 隨機侵蝕和膨脹
-    # if random.random() < 0.7:
-    #     # 輕微侵蝕（讓文字變細，邊緣不完整）
-    #     kernel_size = random.choice([2, 3])
-    #     kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (kernel_size, kernel_size))
-    #     text_mask = cv2.erode(text_mask, kernel, iterations=1)
+    _, text_mask = cv2.threshold(gray, 100, 255, cv2.THRESH_BINARY_INV)
     
     # 3. 在文字區域添加白色噪點
     text_coords = np.where(text_mask > 0)
     if len(text_coords[0]) > 0:
         # 隨機選擇一些文字像素點變成白色
-        num_white_spots = int(len(text_coords[0]) * random.uniform(0.02, 0.08))
+        num_white_spots = int(len(text_coords[0]) * random.uniform(0.01, 0.05))
         indices = np.random.choice(len(text_coords[0]), num_white_spots, replace=False)
         
         for idx in indices:
             y, x = text_coords[0][idx], text_coords[1][idx]
-            # 創建小白點（1-2像素）
-            # spot_size = random.choice([0, 1])
-            # y1, y2 = max(0, y - spot_size), min(img_array.shape[0], y + spot_size + 1)
-            # x1, x2 = max(0, x - spot_size), min(img_array.shape[1], x + spot_size + 1)
             
             # 設置為背景色或更亮的顏色
             brightness = random.randint(200, 255)
             img_array[y, x] = brightness
     
-    # 4. 添加一些邊緣殘缺效果
-    # if random.random() < 0.5:
-    #     # 找出文字邊緣
-    #     edges = cv2.Canny(text_mask, 50, 150)
-    #     edge_coords = np.where(edges > 0)
-        
-    #     if len(edge_coords[0]) > 0:
-    #         # 在邊緣隨機添加小缺口
-    #         num_defects = int(len(edge_coords[0]) * random.uniform(0.05, 0.15))
-    #         indices = np.random.choice(len(edge_coords[0]), num_defects, replace=False)
-            
-    #         for idx in indices:
-    #             y, x = edge_coords[0][idx], edge_coords[1][idx]
-    #             defect_size = random.randint(1, 3)
-    #             y1, y2 = max(0, y - defect_size), min(img_array.shape[0], y + defect_size + 1)
-    #             x1, x2 = max(0, x - defect_size), min(img_array.shape[1], x + defect_size + 1)
-                
-    #             brightness = random.randint(200, 255)
-    #             img_array[y1:y2, x1:x2] = brightness
-    
     return img_array
 
-def regular_img(border=True):
-    kanji_font, _ = get_fonts()
+def regular_img(border=True, img_width=900, img_height=1200, char_size=40, 
+                column_spacing=90, row_spacing=55, margin=50):
+    """
+    生成可配置的古書頁面圖像
     
-    img = create_aged_paper_background(900, 1200)
+    參數:
+        border: 是否繪製邊框
+        img_width: 圖像寬度
+        img_height: 圖像高度
+        char_size: 基礎漢字大小
+        column_spacing: 列間距
+        row_spacing: 行間距
+        border_width: 邊框寬度
+        margin: 邊距
+    """
+    img = create_aged_paper_background(img_width, img_height)
     write = ImageDraw.Draw(img)
 
     all_annotations = []
     
-    x_borders = list(range(50, 800, 90))
-    y_positions = list(range(80, 1100, 55))
+    # 計算可容納的列數和行數
+    num_columns = (img_width - margin - margin) // column_spacing
+    available_height = img_height - margin - margin - 50
+    num_rows = available_height // row_spacing
+    # print(f"Columns: {num_columns}, Rows: {num_rows}")
+    # print(f'img_width: {img_width}, img_height: {img_height}')
+    
+    margin_left = margin + random.randint(0, img_width - margin - margin - num_columns * column_spacing)
+    x_borders = [margin_left + i * column_spacing for i in range(num_columns)]
+    y_positions = [margin + 20 + i * row_spacing for i in range(num_rows)]
     
     for x_border in x_borders:
-        x_pos = x_border + 25
+        kanji_font, kana_fonts = get_fonts(char_size)
+        
+        # 根據縮放調整字符大小和位置
+        x_offset = int((column_spacing - char_size) / 2)
+        x_pos = x_border + x_offset
         
         for i, y_pos in enumerate(y_positions):
             write_char = load_character('common_chars')
             write.text((x_pos, y_pos), write_char, (0, 0, 0), font=kanji_font)
             
             char_annotations = []
-            center_x = x_pos + 20
+            center_x = x_pos + char_size // 2
             
-            add_annotations(center_x, y_pos + 20, 40, write, False, char_annotations, 0.1)
-            add_annotations(center_x, y_pos + 47, 40, write, True, char_annotations, 0.4)
+            add_annotations(center_x, y_pos + char_size // 2, char_size, write, False, char_annotations, 0.1, kana_fonts)
+            add_annotations(center_x, y_pos + char_size + (row_spacing - char_size) // 2, char_size, write, True, char_annotations, 0.4, kana_fonts)
             
             all_annotations.extend(char_annotations)
         
-        if border:
-            write.rectangle((x_border, 50, x_border + 90, 1150), outline=(0, 0, 0), width=2)
+        if border > 0:
+            # print(f'available_height: {available_height}, top: {margin_top}, margin_bottom: {margin_top + available_height + 50}')
+            write.rectangle((x_border, margin, x_border + column_spacing, img_height - margin), 
+                          outline=(0, 0, 0), width=border)
     
     # 應用文字缺陷效果
     img = apply_text_defects(img)
@@ -274,22 +272,41 @@ IMAGE_DIR = "results/images/"
 LABEL_DIR = "results/labels/"
 
 if __name__ == "__main__":
-    # 使用 cv2 直接儲存，避免 PIL 轉換
-    for i in tqdm(range(10)):
-        img, all_annotations = regular_img(border=True)
-        # cvimg = cv2.cvtColor(np.array(img), cv2.COLOR_RGB2BGR)
-        cv2.imwrite(f"{IMAGE_DIR}border_{i}.jpg", img)
-        # img.save(f"{IMAGE_DIR}border_{i}.jpg")
+    for i in tqdm(range(20)):
+        border = random.randint(0, 3)
+        img_width = random.randint(1000, 2000)
+        img_height = random.randint(1000, 2000)
+        min_size = min(img_width, img_height)
+        char_size = random.randint(int(min_size/30), int(min_size/15))
+        column_spacing = random.randint(int(char_size*1.8), int(char_size*2.2))
+        row_spacing = random.randint(int(char_size*1.2), int(char_size*1.5))
+        margin = random.randint(30, 150)
         
-        with open(f'{LABEL_DIR}border_{i}.json', 'w', encoding='utf-8') as f:
+        img, all_annotations = regular_img(
+            border=border,
+            img_width=img_width,
+            img_height=img_height,
+            char_size=char_size,
+            column_spacing=column_spacing,
+            row_spacing=row_spacing,
+            margin=margin
+        )
+        
+        cv2.imwrite(f"{IMAGE_DIR}book{i}.jpg", img)
+        
+        with open(f'{LABEL_DIR}book{i}.json', 'w', encoding='utf-8') as f:
             json.dump(all_annotations, f, ensure_ascii=False, indent=2)
 
-    for i in tqdm(range(10)):
-        img, all_annotations = regular_img(border=False)
-        # img.save(f"{IMAGE_DIR}noborder_{i}.jpg")
+    # img, all_annotations = regular_img(
+    #         border=3,
+    #         img_width=2000,
+    #         img_height=1000,
+    #         char_size=60,
+    #         column_spacing=120,
+    #         row_spacing=75
+    #     )
         
-        # cvimg = cv2.cvtColor(np.array(img), cv2.COLOR_RGB2BGR)
-        cv2.imwrite(f"{IMAGE_DIR}noborder_{i}.jpg", img)
+    # cv2.imwrite(f"{IMAGE_DIR}sp.jpg", img)
         
-        with open(f'{LABEL_DIR}noborder_{i}.json', 'w', encoding='utf-8') as f:
-            json.dump(all_annotations, f, ensure_ascii=False, indent=2)
+    # with open(f'{LABEL_DIR}sp.json', 'w', encoding='utf-8') as f:
+    #     json.dump(all_annotations, f, ensure_ascii=False, indent=2)
