@@ -7,8 +7,7 @@ import cv2
 
 all_chars = None
 # 快取字型物件，避免重複載入
-kanji_font_cache = None
-kana_font_cache = None
+font_cache = {}
 
 def load_character(type):
     global all_chars
@@ -22,6 +21,10 @@ def load_character(type):
 
 def get_fonts(size=40):
     """根據縮放因子創建字型，保持漢字:假名 = 3:1 的比例"""
+    global font_cache
+    if size in font_cache:
+        return font_cache[size]
+
     # 假名大小約為漢字的 1/3，但有一些變化
     kana_base_size = size // 3
     
@@ -34,6 +37,7 @@ def get_fonts(size=40):
         # ImageFont.truetype('font/KleeOne-SemiBold.ttf', kana_base_size + 3, encoding='utf-8')
     ]
     
+    font_cache[size] = (kanji_font, kana_fonts)
     return kanji_font, kana_fonts
 
 def create_aged_paper_background(width, height):
@@ -257,9 +261,10 @@ def regular_img(border=True, img_width=900, img_height=1200, char_size=40,
     x_borders = [margin_left + i * column_spacing for i in range(num_columns)]
     y_positions = [margin + 20 + i * row_spacing for i in range(num_rows)]
     
+    # 優化：移出迴圈，避免重複載入字型
+    kanji_font, kana_fonts = get_fonts(char_size)
+    
     for x_border in x_borders:
-        kanji_font, kana_fonts = get_fonts(char_size)
-        
         # 根據縮放調整字符大小和位置
         x_offset = int((column_spacing - char_size) / 2)
         x_pos = x_border + x_offset
