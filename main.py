@@ -4,6 +4,7 @@ import random
 import numpy as np
 from tqdm import tqdm
 import cv2
+import os
 
 all_chars = None
 # 快取字型物件，避免重複載入
@@ -295,6 +296,11 @@ IMAGE_DIR = "results/images/"
 LABEL_DIR = "results/labels/"
 
 if __name__ == "__main__":
+    if not os.path.exists(IMAGE_DIR):
+        os.makedirs(IMAGE_DIR)
+    if not os.path.exists(LABEL_DIR):
+        os.makedirs(LABEL_DIR)
+
     for i in tqdm(range(20)):
         border = random.randint(0, 3)
         img_width = random.randint(1000, 2000)
