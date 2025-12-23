@@ -39,43 +39,53 @@ def get_fonts(size=40):
 def create_aged_paper_background(width, height):
     """創建模擬古書掃描的背景"""
     base_color = random.randint(235, 255)
-    img_array = np.full((height, width, 3), base_color, dtype=np.uint8)
+    # 使用 int16 進行累積計算，避免多次類型轉換和裁剪
+    img_array = np.full((height, width, 3), base_color, dtype=np.int16)
     
-    # 預先計算網格座標
-    y_indices, x_indices = np.ogrid[:height, :width]
-    
-    # 1. 添加大範圍的色調變化（向量化操作）
+    # 1. 添加大範圍的色調變化（優化：在低解析度上計算後放大）
+    scale = 10
+    small_h, small_w = (height + scale - 1) // scale, (width + scale - 1) // scale
+    noise_map = np.zeros((small_h, small_w), dtype=np.float32)
+    y_indices_small, x_indices_small = np.ogrid[:small_h, :small_w]
+
     for _ in range(5):
-        center_x = random.randint(0, width)
-        center_y = random.randint(0, height)
-        radius = random.randint(200, 500)
+        center_x = random.randint(0, small_w)
+        center_y = random.randint(0, small_h)
+        radius = random.randint(300 // scale, 800 // scale)
         intensity = random.randint(-20, 10)
         
-        distances = np.sqrt((x_indices - center_x)**2 + (y_indices - center_y)**2)
+        distances = np.sqrt((x_indices_small - center_x)**2 + (y_indices_small - center_y)**2)
         mask = np.clip(1 - distances / radius, 0, 1)
-        
-        # 一次性處理所有通道
-        adjustment = (mask * intensity).astype(np.int16)
-        img_array = np.clip(img_array.astype(np.int16) + adjustment[:, :, np.newaxis], 0, 255).astype(np.uint8)
+        noise_map += mask * intensity
     
-    # 2. 添加中等大小的污漬
+    # 放大回原尺寸並疊加
+    noise_large = cv2.resize(noise_map, (width, height))
+    img_array += noise_large[:, :, np.newaxis].astype(np.int16)
+    
+    # 2. 添加中等大小的污漬（優化：只計算局部區域）
     for _ in range(random.randint(10, 20)):
         center_x = random.randint(0, width)
         center_y = random.randint(0, height)
-        radius = random.randint(30, 150)
+        radius = random.randint(50, 300)
         intensity = random.randint(-40, -10)
         
-        distances = np.sqrt((x_indices - center_x)**2 + (y_indices - center_y)**2)
-        mask = np.clip(1 - distances / radius, 0, 1) ** 2
+        # 計算邊界框
+        y1, y2 = max(0, center_y - radius), min(height, center_y + radius)
+        x1, x2 = max(0, center_x - radius), min(width, center_x + radius)
         
-        adjustment = (mask * intensity).astype(np.int16)
-        img_array = np.clip(img_array.astype(np.int16) + adjustment[:, :, np.newaxis], 0, 255).astype(np.uint8)
+        if x2 > x1 and y2 > y1:
+            y_idx, x_idx = np.ogrid[y1:y2, x1:x2]
+            distances = np.sqrt((x_idx - center_x)**2 + (y_idx - center_y)**2)
+            mask = np.clip(1 - distances / radius, 0, 1) ** 2
+            
+            adjustment = (mask * intensity).astype(np.int16)
+            img_array[y1:y2, x1:x2] += adjustment[:, :, np.newaxis]
     
     # 3. 添加細小噪點
     noise = np.random.randint(-15, 15, (height, width, 3), dtype=np.int16)
-    img_array = np.clip(img_array.astype(np.int16) + noise, 0, 255).astype(np.uint8)
+    img_array += noise
     
-    # 4. 添加小黑點 - 使用向量化操作
+    # 4. 添加小黑點
     num_spots = random.randint(50, 200)
     spot_coords = np.random.randint(0, [width, height], size=(num_spots, 2))
     spot_sizes = np.random.randint(1, 4, size=num_spots)
@@ -84,7 +94,11 @@ def create_aged_paper_background(width, height):
     for (x, y), spot_size, darkness in zip(spot_coords, spot_sizes, darkness_values):
         y1, y2 = max(0, y - spot_size), min(height, y + spot_size + 1)
         x1, x2 = max(0, x - spot_size), min(width, x + spot_size + 1)
-        img_array[y1:y2, x1:x2] = np.maximum(img_array[y1:y2, x1:x2] - darkness, 0)
+        # 直接減去，最後統一裁剪
+        img_array[y1:y2, x1:x2] -= darkness
+    
+    # 最後統一裁剪並轉換類型
+    img_array = np.clip(img_array, 0, 255).astype(np.uint8)
     
     # 使用 cv2 進行高斯模糊
     img_array = cv2.GaussianBlur(img_array, (5, 5), 3)
@@ -192,19 +206,23 @@ def apply_text_defects(img):
     # 二值化，找出文字（較暗的區域）
     _, text_mask = cv2.threshold(gray, 100, 255, cv2.THRESH_BINARY_INV)
     
-    # 3. 在文字區域添加白色噪點
+    # 3. 在文字區域添加白色噪點（向量化優化）
     text_coords = np.where(text_mask > 0)
-    if len(text_coords[0]) > 0:
+    num_pixels = len(text_coords[0])
+    
+    if num_pixels > 0:
         # 隨機選擇一些文字像素點變成白色
-        num_white_spots = int(len(text_coords[0]) * random.uniform(0.01, 0.05))
-        indices = np.random.choice(len(text_coords[0]), num_white_spots, replace=False)
+        num_white_spots = int(num_pixels * random.uniform(0.01, 0.05))
+        indices = np.random.choice(num_pixels, num_white_spots, replace=False)
         
-        for idx in indices:
-            y, x = text_coords[0][idx], text_coords[1][idx]
-            
-            # 設置為背景色或更亮的顏色
-            brightness = random.randint(200, 255)
-            img_array[y, x] = brightness
+        ys = text_coords[0][indices]
+        xs = text_coords[1][indices]
+        
+        # 設置為背景色或更亮的顏色
+        brightness = np.random.randint(200, 256, size=num_white_spots, dtype=np.uint8)
+        
+        # 利用廣播機制一次性賦值
+        img_array[ys, xs] = brightness[:, np.newaxis]
     
     return img_array
 
