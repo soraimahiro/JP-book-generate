@@ -5,6 +5,8 @@ import numpy as np
 from tqdm import tqdm
 import cv2
 import os
+from concurrent.futures import ProcessPoolExecutor
+import multiprocessing
 
 all_chars = None
 # 快取字型物件，避免重複載入
@@ -292,6 +294,40 @@ def regular_img(border=True, img_width=900, img_height=1200, char_size=40,
     
     return img, all_annotations
 
+def generate_single_image(args):
+    """生成單張圖片的工作函數（用於多進程）"""
+    i, seed = args
+    
+    # 設定獨立的隨機種子
+    random.seed(seed)
+    np.random.seed(seed)
+    
+    border = random.randint(0, 3)
+    img_width = random.randint(1000, 2000)
+    img_height = random.randint(1000, 2000)
+    min_size = min(img_width, img_height)
+    char_size = random.randint(int(min_size/30), int(min_size/15))
+    column_spacing = random.randint(int(char_size*1.8), int(char_size*2.2))
+    row_spacing = random.randint(int(char_size*1.2), int(char_size*1.5))
+    margin = random.randint(30, 150)
+    
+    img, all_annotations = regular_img(
+        border=border,
+        img_width=img_width,
+        img_height=img_height,
+        char_size=char_size,
+        column_spacing=column_spacing,
+        row_spacing=row_spacing,
+        margin=margin
+    )
+    
+    cv2.imwrite(f"{IMAGE_DIR}book{i}.jpg", img, [cv2.IMWRITE_JPEG_QUALITY, 85])
+    
+    with open(f'{LABEL_DIR}book{i}.json', 'w', encoding='utf-8') as f:
+        json.dump(all_annotations, f, ensure_ascii=False, indent=2)
+    
+    return i
+
 IMAGE_DIR = "results/images/"
 LABEL_DIR = "results/labels/"
 
@@ -301,27 +337,17 @@ if __name__ == "__main__":
     if not os.path.exists(LABEL_DIR):
         os.makedirs(LABEL_DIR)
 
-    for i in tqdm(range(10)):
-        border = random.randint(0, 3)
-        img_width = random.randint(1000, 2000)
-        img_height = random.randint(1000, 2000)
-        min_size = min(img_width, img_height)
-        char_size = random.randint(int(min_size/30), int(min_size/15))
-        column_spacing = random.randint(int(char_size*1.8), int(char_size*2.2))
-        row_spacing = random.randint(int(char_size*1.2), int(char_size*1.5))
-        margin = random.randint(30, 150)
-        
-        img, all_annotations = regular_img(
-            border=border,
-            img_width=img_width,
-            img_height=img_height,
-            char_size=char_size,
-            column_spacing=column_spacing,
-            row_spacing=row_spacing,
-            margin=margin
-        )
-        
-        cv2.imwrite(f"{IMAGE_DIR}book{i}.jpg", img, [cv2.IMWRITE_JPEG_QUALITY, 85])
-        
-        with open(f'{LABEL_DIR}book{i}.json', 'w', encoding='utf-8') as f:
-            json.dump(all_annotations, f, ensure_ascii=False, indent=2)
+    num_images = 20
+    num_workers = min(multiprocessing.cpu_count(), num_images)
+    
+    # 為每個任務生成獨立的隨機種子
+    seeds = [random.randint(0, 2**32 - 1) for _ in range(num_images)]
+    tasks = [(i, seeds[i]) for i in range(num_images)]
+    
+    print(f"use {num_workers} processor to generate {num_images} images")
+    
+    with ProcessPoolExecutor(max_workers=num_workers) as executor:
+        # 使用 tqdm 顯示進度
+        list(tqdm(executor.map(generate_single_image, tasks), total=num_images))
+    
+    print("完成！")
