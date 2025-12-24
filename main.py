@@ -301,7 +301,7 @@ if __name__ == "__main__":
     if not os.path.exists(LABEL_DIR):
         os.makedirs(LABEL_DIR)
 
-    for i in tqdm(range(20)):
+    for i in tqdm(range(10)):
         border = random.randint(0, 3)
         img_width = random.randint(1000, 2000)
         img_height = random.randint(1000, 2000)
@@ -321,21 +321,7 @@ if __name__ == "__main__":
             margin=margin
         )
         
-        cv2.imwrite(f"{IMAGE_DIR}book{i}.jpg", img)
+        cv2.imwrite(f"{IMAGE_DIR}book{i}.jpg", img, [cv2.IMWRITE_JPEG_QUALITY, 85])
         
         with open(f'{LABEL_DIR}book{i}.json', 'w', encoding='utf-8') as f:
             json.dump(all_annotations, f, ensure_ascii=False, indent=2)
-
-    # img, all_annotations = regular_img(
-    #         border=3,
-    #         img_width=2000,
-    #         img_height=1000,
-    #         char_size=60,
-    #         column_spacing=120,
-    #         row_spacing=75
-    #     )
-        
-    # cv2.imwrite(f"{IMAGE_DIR}sp.jpg", img)
-        
-    # with open(f'{LABEL_DIR}sp.json', 'w', encoding='utf-8') as f:
-    #     json.dump(all_annotations, f, ensure_ascii=False, indent=2)
