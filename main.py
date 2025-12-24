@@ -1,4 +1,4 @@
-from PIL import Image, ImageDraw, ImageFont, ImageFilter
+from PIL import Image, ImageDraw, ImageFont
 import json
 import random
 import numpy as np
@@ -31,13 +31,18 @@ def get_fonts(size=40):
     # 假名大小約為漢字的 1/3，但有一些變化
     kana_base_size = size // 3
     
-    kanji_font = ImageFont.truetype('font/NotoSerifTC-Regular.ttf', size, encoding='utf-8')
+    # 每個元組包含 (字型物件, y軸偏移比例)
+    kanji_font = [
+        (ImageFont.truetype('font/NotoSerifTC-Regular.ttf', size, encoding='utf-8'), 0),
+        (ImageFont.truetype('font/edukai-5.0.ttf', size, encoding='utf-8'), 0.2),
+        (ImageFont.truetype('font/Iansui-Regular.ttf', size-2, encoding='utf-8'), 0.15),
+    ]
     kana_fonts = [
         ImageFont.truetype('font/YujiSyuku-Regular.ttf', kana_base_size, encoding='utf-8'),
         ImageFont.truetype('font/YujiSyuku-Regular.ttf', kana_base_size + 3, encoding='utf-8'),
         ImageFont.truetype('font/YujiSyuku-Regular.ttf', kana_base_size + 5, encoding='utf-8'),
-        # ImageFont.truetype('font/KleeOne-SemiBold.ttf', kana_base_size, encoding='utf-8'),
-        # ImageFont.truetype('font/KleeOne-SemiBold.ttf', kana_base_size + 3, encoding='utf-8')
+        ImageFont.truetype('font/KleeOne-SemiBold.ttf', kana_base_size, encoding='utf-8'),
+        ImageFont.truetype('font/KleeOne-SemiBold.ttf', kana_base_size + 3, encoding='utf-8')
     ]
     
     font_cache[size] = (kanji_font, kana_fonts)
@@ -265,7 +270,10 @@ def regular_img(border=True, img_width=900, img_height=1200, char_size=40,
     y_positions = [margin + 20 + i * row_spacing for i in range(num_rows)]
     
     # 優化：移出迴圈，避免重複載入字型
-    kanji_font, kana_fonts = get_fonts(char_size)
+    kanji_fonts_with_offset, kana_fonts = get_fonts(char_size)
+    # 為這張圖片選擇一個固定的漢字字體
+    selected_font, offset_ratio = random.choice(kanji_fonts_with_offset)
+    y_offset = int(char_size * offset_ratio)
     
     for x_border in x_borders:
         # 根據縮放調整字符大小和位置
@@ -274,7 +282,8 @@ def regular_img(border=True, img_width=900, img_height=1200, char_size=40,
         
         for i, y_pos in enumerate(y_positions):
             write_char = load_character('common_chars')
-            write.text((x_pos, y_pos), write_char, (0, 0, 0), font=kanji_font)
+            # 使用同一個選定的字體
+            write.text((x_pos, y_pos + y_offset), write_char, (0, 0, 0), font=selected_font)
             
             char_annotations = []
             center_x = x_pos + char_size // 2
@@ -349,5 +358,3 @@ if __name__ == "__main__":
     with ProcessPoolExecutor(max_workers=num_workers) as executor:
         # 使用 tqdm 顯示進度
         list(tqdm(executor.map(generate_single_image, tasks), total=num_images))
-    
-    print("完成！")
